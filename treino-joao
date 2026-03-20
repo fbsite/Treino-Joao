@@ -345,4 +345,127 @@
                         <div class="w-16 h-16 bg-slate-950 rounded-2xl flex items-center justify-center text-3xl border border-white/5">${w.icon}</div>
                         <div class="text-left">
                             <p class="text-white font-black text-xl tracking-tight">${w.title}</p>
-                         
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">${w.exercises.length} Exercícios</p>
+                        </div>
+                    </div>
+                    <svg class="text-slate-700" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                `;
+                list.appendChild(btn);
+            });
+        }
+
+        function toggleSet(pill) {
+            pill.classList.toggle('completed');
+        }
+
+        function openWorkout(workout) {
+            const header = document.getElementById('workoutHeader');
+            header.innerHTML = `<h2 class="text-3xl font-black italic uppercase text-emerald-500 tracking-tighter">${workout.title}</h2><p class="text-slate-500 text-sm">Foco Hipertrofia Intermediário (João)</p>`;
+            
+            const list = document.getElementById('exerciseList');
+            list.innerHTML = '';
+            workout.exercises.forEach((ex, exIdx) => {
+                const numSets = parseInt(ex.s.split('x')[0]) || 0;
+                let setSlotsHtml = '';
+                
+                for(let i = 1; i <= numSets; i++) {
+                    setSlotsHtml += `
+                        <button onclick="toggleSet(this)" class="set-pill w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-xs font-bold text-slate-400 glass-card">
+                            ${i}
+                        </button>
+                    `;
+                }
+
+                const div = document.createElement('div');
+                div.className = "glass-card rounded-[2rem] overflow-hidden shadow-lg mb-4";
+                div.innerHTML = `
+                    <div class="p-6 flex gap-5">
+                        <div class="text-4xl bg-emerald-500/10 w-20 h-20 rounded-2xl flex items-center justify-center border border-emerald-500/20 shrink-0">${ex.i}</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-white">${ex.n}</h3>
+                                <button onclick="startTimer(${ex.r})" class="p-2.5 bg-emerald-600/20 rounded-xl text-emerald-400 active:scale-90 transition-transform">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </button>
+                            </div>
+                            <div class="flex gap-3 mt-2">
+                                <span class="bg-emerald-600 text-[10px] font-black px-2 py-0.5 rounded text-white tracking-widest uppercase">${ex.s}</span>
+                                <span class="text-slate-500 text-xs font-bold">${ex.r}s Descanso</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-2">
+                        <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-3">Check-in de Séries:</p>
+                        <div class="flex flex-wrap gap-3">
+                            ${setSlotsHtml}
+                        </div>
+                    </div>
+
+                    <div class="bg-black/20 p-4 border-t border-white/5 flex gap-3 text-slate-400 text-xs italic">
+                        <svg class="shrink-0 text-emerald-500" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        ${ex.d}
+                    </div>
+                `;
+                list.appendChild(div);
+            });
+            showView('workout-detail');
+        }
+
+        function finishWorkout() {
+            state.count++;
+            saveState();
+            showView('dashboard');
+        }
+
+        function loadTips() {
+            const container = document.getElementById('tipsContainer');
+            container.innerHTML = '';
+            TIPS.forEach(tip => {
+                const div = document.createElement('div');
+                div.className = "glass-card p-6 rounded-[2rem] flex gap-5 shadow-md";
+                div.innerHTML = `
+                    <div class="bg-emerald-500/10 p-3 h-fit rounded-2xl text-emerald-500 border border-emerald-500/20">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-emerald-400 font-black text-lg mb-1 tracking-tight">${tip.t}</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">${tip.d}</p>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function loadProfileInputs() {
+            document.getElementById('inputWeight').value = state.weight;
+            document.getElementById('inputHeight').value = state.height;
+            document.getElementById('inputAge').value = state.age;
+            calculateBMI();
+        }
+
+        function saveProfile() {
+            state.weight = parseFloat(document.getElementById('inputWeight').value) || 0;
+            state.height = parseFloat(document.getElementById('inputHeight').value) || 0;
+            state.age = parseInt(document.getElementById('inputAge').value) || 0;
+            saveState();
+            calculateBMI();
+            showView('dashboard');
+        }
+
+        function calculateBMI() {
+            if (state.height > 0) {
+                const bmi = (state.weight / (state.height * state.height)).toFixed(1);
+                document.getElementById('bmiDisplay').textContent = bmi;
+            }
+        }
+
+        function saveState() {
+            localStorage.setItem('hg_joao_state_abc_v3', JSON.stringify(state));
+        }
+
+        // --- Inicialização ---
+        updateDashboard();
+    </script>
+</body>
+</html>
