@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyperGrowth - João (Treino ABC)</title>
+    <title>HyperGrowth - João (Advanced ABC)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -76,7 +76,7 @@
         <header class="flex justify-between items-center mb-8">
             <div>
                 <h1 class="text-3xl font-black italic uppercase tracking-tighter leading-none">HyperGrowth</h1>
-                <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mt-1">Atleta: João (Treino ABC)</p>
+                <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mt-1">Atleta: João (Protocolo Avançado)</p>
             </div>
             <div class="bg-emerald-500/10 p-3 rounded-2xl border border-emerald-500/20">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.292 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
@@ -91,7 +91,7 @@
                     <div class="flex justify-between items-start mb-4">
                         <div>
                             <p class="text-white/60 text-[10px] font-black uppercase tracking-widest">Plano de Treino</p>
-                            <h2 class="text-white font-black text-xl italic mt-1">Meta: 75kg (Ganho Massivo)</h2>
+                            <h2 class="text-white font-black text-xl italic mt-1">Meta: 75kg (Protocolo Avançado)</h2>
                         </div>
                     </div>
                     <div class="w-full bg-black/20 h-2 rounded-full overflow-hidden mb-2">
@@ -107,7 +107,7 @@
 
             <!-- Frase Motivacional -->
             <div class="glass-card p-5 rounded-3xl border-l-4 border-l-emerald-500">
-                <p id="motivationalQuote" class="text-slate-300 italic text-sm font-medium">"A consistência é o que transforma o desejo em realidade."</p>
+                <p id="motivationalQuote" class="text-slate-300 italic text-sm font-medium">"Ou você sobe o peso, ou sobe a repetição — sempre."</p>
             </div>
 
             <!-- Estatísticas Rápidas -->
@@ -132,7 +132,7 @@
             <section>
                 <h2 class="text-white font-black text-xs uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15h12M6 9h12M3 21h18M3 3h18"/></svg>
-                    Divisão ABC (3x na Semana)
+                    CRONOGRAMA AVANÇADO
                 </h2>
                 <div class="space-y-4" id="workoutList">
                     <!-- Gerado via JS -->
@@ -147,20 +147,20 @@
             </button>
             <div id="workoutHeader"></div>
             <div id="exerciseList" class="space-y-4"></div>
-            <button onclick="finishWorkout()" class="w-full mt-10 py-5 bg-emerald-600 rounded-[2rem] font-black text-xl shadow-xl shadow-emerald-950/50 active:scale-95 transition-all">
-                CONCLUIR TREINO
+            <button onclick="finishWorkout()" class="w-full mt-10 py-5 bg-emerald-600 rounded-[2rem] font-black text-xl shadow-xl shadow-emerald-950/50 active:scale-95 transition-all uppercase tracking-widest">
+                CONCLUIR SESSÃO
             </button>
         </div>
 
         <!-- View: Tips -->
         <div id="view-tips" class="hidden space-y-6 animate-in fade-in duration-300">
-            <h2 class="text-3xl font-black text-white pt-2 italic tracking-tighter">Dicas do Personal</h2>
+            <h2 class="text-3xl font-black text-white pt-2 italic tracking-tighter uppercase">Regras de Ouro</h2>
             <div id="tipsContainer" class="space-y-4"></div>
         </div>
 
         <!-- View: Profile -->
         <div id="view-profile" class="hidden space-y-6 animate-in fade-in duration-300">
-            <h2 class="text-3xl font-black text-white pt-2 italic tracking-tighter">Evolução João</h2>
+            <h2 class="text-3xl font-black text-white pt-2 italic tracking-tighter uppercase">Evolução João</h2>
             <div class="glass-card p-8 rounded-[2.5rem] flex items-center justify-between shadow-xl">
                 <div class="flex items-center gap-5">
                     <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 border border-blue-500/20">
@@ -214,66 +214,70 @@
         const END_DATE = new Date('2026-05-23');
         
         const QUOTES = [
-            "Não pares até estares orgulhoso.",
-            "O músculo cresce no descanso, mas ganha-se na luta.",
-            "Para teres resultados diferentes, tens de fazer treinos diferentes.",
-            "O teu corpo aguenta quase tudo, é a tua mente que tens de convencer.",
-            "Consistência é o segredo dos 75kg."
+            "Se fez o topo das reps → aumenta carga na próxima semana.",
+            "Sem comer → você vira maratonista de academia.",
+            "A carga deve subir ou a repetição deve subir — sempre.",
+            "O músculo cresce na tensão. Controle a descida.",
+            "Proteína alta, carbo alto, treino pesado."
         ];
 
         const TIPS = [
-            { t: "Foco no Superavit", d: "João, com 68kg o teu maior inimigo é a falta de calorias. Come limpo, mas come muito." },
-            { t: "Progressão ABC", d: "Como o treino é dividido, tenta levar cada músculo à falha técnica entre a 8ª e 12ª repetição." },
-            { t: "Tempo de Tensão", d: "Não tenhas pressa na descida do peso. Controla a fase excêntrica para rasgar as fibras." },
-            { t: "Recuperação", d: "Dorme 8h. O teu corpo é um laboratório anabólico durante a noite." }
+            { t: "🍽️ Alerta Real", d: "Superávit calórico obrigatório. Proteína: 2g/kg (~136g/dia). Carbo alto para energia." },
+            { t: "📈 Progressão de Carga", d: "Se fez o topo das reps, aumente a carga. O segredo está em nunca ficar na zona de conforto." },
+            { t: "📉 Técnica de Intensidade", d: "Rest-pause e Drop Sets servem para levar o músculo além da falha momentânea." },
+            { t: "🔋 Recuperação Avançada", d: "Treino ABC 3x exige que você durma pesado nos dias de descanso." }
         ];
 
         const WORKOUTS = [
             {
                 id: 'a',
-                title: 'Treino A - Empurrar (Peito/Ombro/Tríceps)',
-                icon: '⚡',
+                title: '💣 Treino A – Força Bruta',
+                icon: '💥',
                 exercises: [
-                    { n: 'Supino Reto (Barra)', s: '4x8-10', r: 90, d: 'Foco em explosão na subida e controlo na descida.', i: '🏋️' },
-                    { n: 'Supino Inclinado (Halteres)', s: '3x10-12', r: 60, d: 'Trabalha a parte superior do peito para preencher o tórax.', i: '📈' },
-                    { n: 'Desenvolvimento (Halteres)', s: '3x10', r: 60, d: 'Mantém o core contraído para proteger a lombar.', i: '💪' },
-                    { n: 'Elevação Lateral', s: '3x15', r: 45, d: 'Foco no deltóide lateral para ombros largos.', i: '🦅' },
-                    { n: 'Tríceps Corda', s: '3x12', r: 60, d: 'Abre a corda no final do movimento para contração máxima.', i: '⛓️' }
+                    { n: 'Agachamento Livre', s: '4x6-8', r: 120, d: 'Última série com REST-PAUSE (6 + 3 + 2). Descanse só 15s entre as pausas.', i: '👑' },
+                    { n: 'Supino Reto (Barra)', s: '4x6-8', r: 90, d: 'Excêntrica controlada: Conte 3 segundos na descida da barra.', i: '🏋️' },
+                    { n: 'Barra Fixa (ou Puxada)', s: '4x6-10', r: 90, d: 'Se estiver fácil, coloque caneleiras ou peso no cinto.', i: '🧗' },
+                    { n: 'Levantamento Terra', s: '3x5', r: 150, d: 'PESADO. Sem firula. Foco em força bruta.', i: '🏗️' },
+                    { n: 'Elevação Lateral', s: '3x10-12', r: 60, d: 'Última série com DROP SET: Reduza o peso e vá até a falha.', i: '🦅' },
+                    { n: 'Tríceps Testa', s: '3x8-10', r: 60, d: 'Mantenha os cotovelos fechados e fixos.', i: '💀' },
+                    { n: 'Rosca Direta', s: '3x8-10', r: 60, d: 'Sem balanço. Subida explosiva, descida lenta.', i: '🧪' }
                 ]
             },
             {
                 id: 'b',
-                title: 'Treino B - Puxar (Costas/Bíceps/Post.)',
+                title: '⚡ Treino B – Volume + Pump',
                 icon: '🔥',
                 exercises: [
-                    { n: 'Remada Curvada (Barra)', s: '4x10', r: 90, d: 'Mantém as costas seladas e puxa para o umbigo.', i: '🛶' },
-                    { n: 'Puxada Dorsal Alta', s: '4x10', r: 90, d: 'Foco em fechar as escápulas, não puxes só com o braço.', i: '🧗' },
-                    { n: 'Remada Baixa (Triângulo)', s: '3x12', r: 60, d: 'Sente o alongamento das costas na volta.', i: '🚜' },
-                    { n: 'Rosca Direta (Barra W)', s: '3x12', r: 60, d: 'Evita balançar o corpo, isola o bíceps.', i: '🧪' },
-                    { n: 'Face Pull', s: '3x15', r: 45, d: 'Puxa em direção à testa para deltoide posterior.', i: '👺' }
+                    { n: 'Leg Press', s: '4x10-12', r: 90, d: 'Última com DROP SET TRIPLO. Falhou? Diminui e continua 3x.', i: '📉' },
+                    { n: 'Supino Inclinado (Halteres)', s: '4x8-12', r: 60, d: 'Foco na parte superior do peito.', i: '📈' },
+                    { n: 'Remada Curvada', s: '4x8-10', r: 90, d: 'Puxe em direção ao umbigo, esmague as costas.', i: '🛶' },
+                    { n: 'Desenvolvimento (Halteres)', s: '3x8-10', r: 60, d: 'Amplitude total, sem bater os halteres no topo.', i: '💪' },
+                    { n: 'Cadeira Extensora', s: '3x12-15', r: 45, d: 'Isometria final de 10s na última repetição de cada série.', i: '🪑' },
+                    { n: 'Rosca Alternada', s: '3x10-12', r: 60, d: 'Gire o punho no topo para pico de contração.', i: '🧬' },
+                    { n: 'Tríceps Corda', s: '3x10-12', r: 45, d: 'Adicione DROP SET na última série.', i: '⛓️' }
                 ]
             },
             {
                 id: 'c',
-                title: 'Treino C - Pernas e Abdominais',
-                icon: '🦵',
+                title: '🚀 Treino C – Acabamento',
+                icon: '💎',
                 exercises: [
-                    { n: 'Agachamento Livre', s: '4x10', r: 120, d: 'O rei dos exercícios. Mantém o peito alto e desce bem.', i: '👑' },
-                    { n: 'Leg Press 45', s: '3x12', r: 90, d: 'Não traves os joelhos no final da subida.', i: '📉' },
-                    { n: 'Cadeira Extensora', s: '3x15', r: 45, d: 'Pausa de 1s no topo para contração total.', i: '🪑' },
-                    { n: 'Mesa Flexora', s: '3x15', r: 45, d: 'Controla a descida para trabalhar o posterior.', i: '🔗' },
-                    { n: 'Panturrilha em Pé', s: '4x15', r: 45, d: 'Amplitude total: desce tudo e sobe tudo.', i: '🦶' },
-                    { n: 'Abdominal Supra', s: '3x20', r: 45, d: 'Solta o ar na subida e contrai o abdómen.', i: '🧱' }
+                    { n: 'Hack Machine ou Agacho', s: '4x8-10', r: 90, d: 'Pés levemente à frente para focar no quadríceps.', i: '⚙️' },
+                    { n: 'Paralelas (ou Mergulho)', s: '4x FALHA', r: 60, d: 'Se passar de 12 reps, coloque peso entre as pernas.', i: '🏊' },
+                    { n: 'Puxada Alta (Aberta)', s: '4x10-12', r: 60, d: 'Puxe em direção à parte superior do peito.', i: '👐' },
+                    { n: 'Stiff', s: '3x8-10', r: 90, d: 'Mantenha as pernas quase retas, sinta o posterior alongar.', i: '🔗' },
+                    { n: 'Elevação Lat + Frontal', s: '3x12+12', r: 60, d: 'BI-SET: Faça lateral e imediatamente a frontal sem descanso.', i: '🌓' },
+                    { n: 'Rosca Scott', s: '3x10-12', r: 60, d: 'Não estique totalmente o braço para manter a tensão.', i: '⛪' },
+                    { n: 'Tríceps Francês', s: '3x10-12', r: 60, d: 'Cotovelos apontando para o teto.', i: '🥖' }
                 ]
             }
         ];
 
-        let state = JSON.parse(localStorage.getItem('hg_joao_state_abc_v3')) || {
+        let state = JSON.parse(localStorage.getItem('hg_joao_state_abc_advanced')) || {
             weight: 68,
             height: 1.77,
             age: 27,
-            count: 0,
-            lastWorkout: null
+            count: 0
         };
 
         // --- Lógica do Timer ---
@@ -322,18 +326,12 @@
             // Lógica de Datas e Progresso
             const now = new Date();
             const totalDays = Math.ceil(Math.abs(END_DATE - START_DATE) / (1000 * 60 * 60 * 24));
-            
-            let diffDays;
-            if (now < START_DATE) {
-                diffDays = 0;
-            } else {
-                diffDays = Math.ceil(Math.abs(now - START_DATE) / (1000 * 60 * 60 * 24));
-            }
+            let diffDays = now < START_DATE ? 0 : Math.ceil(Math.abs(now - START_DATE) / (1000 * 60 * 60 * 24));
             
             const progress = Math.min(100, Math.max(0, (diffDays / totalDays) * 100));
             document.getElementById('dateProgressBar').style.width = `${progress}%`;
 
-            // Lista de Treinos ABC
+            // Lista de Treinos
             const list = document.getElementById('workoutList');
             list.innerHTML = '';
             WORKOUTS.forEach(w => {
@@ -344,8 +342,8 @@
                     <div class="flex items-center gap-5">
                         <div class="w-16 h-16 bg-slate-950 rounded-2xl flex items-center justify-center text-3xl border border-white/5">${w.icon}</div>
                         <div class="text-left">
-                            <p class="text-white font-black text-xl tracking-tight">${w.title}</p>
-                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">${w.exercises.length} Exercícios</p>
+                            <p class="text-white font-black text-xl tracking-tight leading-tight">${w.title}</p>
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">${w.exercises.length} Estações de Choque</p>
                         </div>
                     </div>
                     <svg class="text-slate-700" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -360,7 +358,7 @@
 
         function openWorkout(workout) {
             const header = document.getElementById('workoutHeader');
-            header.innerHTML = `<h2 class="text-3xl font-black italic uppercase text-emerald-500 tracking-tighter">${workout.title}</h2><p class="text-slate-500 text-sm">Foco Hipertrofia Intermediário (João)</p>`;
+            header.innerHTML = `<h2 class="text-3xl font-black italic uppercase text-emerald-500 tracking-tighter leading-none">${workout.title}</h2><p class="text-slate-500 text-sm mt-1 font-bold uppercase tracking-widest">Protocolo Hipertrofia João</p>`;
             
             const list = document.getElementById('exerciseList');
             list.innerHTML = '';
@@ -370,40 +368,42 @@
                 
                 for(let i = 1; i <= numSets; i++) {
                     setSlotsHtml += `
-                        <button onclick="toggleSet(this)" class="set-pill w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-xs font-bold text-slate-400 glass-card">
+                        <button onclick="toggleSet(this)" class="set-pill w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-sm font-black text-slate-500 glass-card">
                             ${i}
                         </button>
                     `;
                 }
 
                 const div = document.createElement('div');
-                div.className = "glass-card rounded-[2rem] overflow-hidden shadow-lg mb-4";
+                div.className = "glass-card rounded-[2.5rem] overflow-hidden shadow-lg mb-4";
                 div.innerHTML = `
                     <div class="p-6 flex gap-5">
                         <div class="text-4xl bg-emerald-500/10 w-20 h-20 rounded-2xl flex items-center justify-center border border-emerald-500/20 shrink-0">${ex.i}</div>
                         <div class="flex-1">
                             <div class="flex justify-between items-start">
-                                <h3 class="font-bold text-lg text-white">${ex.n}</h3>
-                                <button onclick="startTimer(${ex.r})" class="p-2.5 bg-emerald-600/20 rounded-xl text-emerald-400 active:scale-90 transition-transform">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <h3 class="font-black text-lg text-white leading-tight uppercase">${ex.n}</h3>
+                                <button onclick="startTimer(${ex.r})" class="p-2.5 bg-emerald-600/20 rounded-xl text-emerald-400 active:scale-90 transition-transform shadow-lg shadow-emerald-950/40">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 </button>
                             </div>
                             <div class="flex gap-3 mt-2">
                                 <span class="bg-emerald-600 text-[10px] font-black px-2 py-0.5 rounded text-white tracking-widest uppercase">${ex.s}</span>
-                                <span class="text-slate-500 text-xs font-bold">${ex.r}s Descanso</span>
+                                <span class="text-slate-500 text-[10px] font-black uppercase flex items-center gap-1">
+                                   ${ex.r}s DESC.
+                                </span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="px-6 pb-6 pt-2">
-                        <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-3">Check-in de Séries:</p>
-                        <div class="flex flex-wrap gap-3">
+                        <p class="text-slate-500 text-[9px] font-black uppercase tracking-widest mb-3">Check-in de Séries:</p>
+                        <div class="flex flex-wrap gap-4">
                             ${setSlotsHtml}
                         </div>
                     </div>
 
-                    <div class="bg-black/20 p-4 border-t border-white/5 flex gap-3 text-slate-400 text-xs italic">
-                        <svg class="shrink-0 text-emerald-500" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <div class="bg-black/40 p-5 border-t border-white/5 flex gap-3 text-slate-300 text-xs italic leading-relaxed">
+                        <svg class="shrink-0 text-emerald-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                         ${ex.d}
                     </div>
                 `;
@@ -423,13 +423,13 @@
             container.innerHTML = '';
             TIPS.forEach(tip => {
                 const div = document.createElement('div');
-                div.className = "glass-card p-6 rounded-[2rem] flex gap-5 shadow-md";
+                div.className = "glass-card p-6 rounded-[2.5rem] flex gap-5 shadow-md border-l-4 border-l-emerald-500";
                 div.innerHTML = `
                     <div class="bg-emerald-500/10 p-3 h-fit rounded-2xl text-emerald-500 border border-emerald-500/20">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                     </div>
                     <div>
-                        <h3 class="text-emerald-400 font-black text-lg mb-1 tracking-tight">${tip.t}</h3>
+                        <h3 class="text-emerald-400 font-black text-lg mb-1 tracking-tight uppercase italic">${tip.t}</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">${tip.d}</p>
                     </div>
                 `;
@@ -461,7 +461,7 @@
         }
 
         function saveState() {
-            localStorage.setItem('hg_joao_state_abc_v3', JSON.stringify(state));
+            localStorage.setItem('hg_joao_state_abc_advanced', JSON.stringify(state));
         }
 
         // --- Inicialização ---
